@@ -4,7 +4,8 @@ const dotenv = require('dotenv').config()
 const mongoose = require("mongoose");
 require("./config/db")
 const cors = require('cors');
-const options = require('./Data/Categories')
+const AssignmentRouter = require("./Routes/Assignment")
+
 
 
 
@@ -20,13 +21,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 
-app.get('/Categories', (req, res) => {
-    res.json(options)
-})
-app.get('/', (req, res) => {
-    res.json(options)
-})
 
+app.get('/', (req, res) => {
+   res.json("hellow orkd")
+})
+app.use('/', AssignmentRouter)
 
 
 
