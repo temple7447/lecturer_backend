@@ -60,7 +60,18 @@ router.post('/AssigmentSchema/Delete', (req, res) => {
             console.log("there was an error while trying to delete the document:", err);
             res.status(500).json("There was an error while trying to delete the document");
         });
+
+     AssignHomeSchema.findOneAndDelete({ _id })
+        .then(() => {
+            console.log("it was successfully deleted");
+
+        })
+        .catch((err) => {
+            console.log("there was an error while trying to delete the document:", err);
+         
+        });
 });
+
 
 
 router.post('/AssigmentSchema/Delete/home', (req, res) => {
